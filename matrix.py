@@ -15,7 +15,7 @@ def main():
     # print(m.null_space())
     s = get_size()
     m = get_matrix(s[0], s[1])
-    m = Matrix.matrix_from_list(m)
+    m = Matrix.from_list(m)
     print(m.coefficient_matrix)
 
 class Matrix():
@@ -40,7 +40,7 @@ class Matrix():
         return null_space(self.coefficient_matrix)
     
     @classmethod
-    def matrix_from_list(cls, l):
+    def from_list(cls, l):
         return cls(size=(len(l), len(l[0])), coeff_matrix=np.array(l))
 
 def set_coeff_matrix(m):

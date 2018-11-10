@@ -7,6 +7,7 @@ class MainWindow(wx.Frame):
         self.x = 1
         self.y = 1
         self._cells = []
+        self.current_matrix = None
 
         self.g_sizer = None
 
@@ -60,7 +61,8 @@ class MainWindow(wx.Frame):
             m.append([])
             for j in range(len(self._cells[0])):
                 m[i].append(int(self._cells[i][j].GetValue()))
-        # i = Matrix()
+        self.current_matrix = Matrix.from_list(m)
+        print(self.current_matrix.coefficient_matrix)
     
     def DrawCells(self):
         self._cells = []
@@ -80,15 +82,12 @@ class MainWindow(wx.Frame):
         self.Fit()
     
 
-
     def OnXDim(self, event): 
         self.x = int(self.x_dim.GetValue())
-        print(self.x)
         self.DrawCells()
 
     def OnYDim(self, event): 
         self.y = int(self.y_dim.GetValue())
-        print(self.y)
         self.DrawCells()
 
 
